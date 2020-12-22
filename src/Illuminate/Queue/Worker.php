@@ -639,6 +639,7 @@ class Worker
         pcntl_async_signals(true);
 
         pcntl_signal(SIGTERM, function () {
+            fwrite(STDERR, "SIGTERM received\n");
             $this->shouldQuit = true;
         });
 
